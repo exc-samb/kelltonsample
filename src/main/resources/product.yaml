@@ -1,0 +1,13 @@
+https:
+  basepath: "base"
+  listener:
+    path: "v1"
+  host: "localhost"
+  port: "8082"
+  
+api:
+  id: "102558"
+console: "console"
+
+mule:
+  key: Sadik8569 

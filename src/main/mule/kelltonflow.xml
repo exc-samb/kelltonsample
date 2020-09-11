@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="kelltonflowFlow" doc:id="c54a3829-0116-48b4-891c-bd59a6019c45" >
+		<logger level="INFO" doc:name="Logger" doc:id="a72384f8-de8b-442c-aa20-f0c4c0d1df1b" message="${mule.key}"/>
+		<ee:transform doc:name="Transform Message" doc:id="65c127c7-5c00-491d-b9ac-3c2a78a264c9">
+			<ee:message>
+				<ee:set-payload resource="payloadDW.dwl" />
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

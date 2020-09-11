@@ -1,0 +1,18 @@
+#%RAML 1.0
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/fdc029f2-ec77-4578-97ba-0ab2be4f1464/ # 
+title: kelltonsample
+
+traits: 
+  secured: !include traits/secured.raml 
+
+/kellton:
+  get:
+    is: [secured]
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/api.json
+              
+        
+    
