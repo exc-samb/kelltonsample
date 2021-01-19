@@ -124,5 +124,23 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+	
+	<plugin>
+    <groupId>com.mulesoft.munit.tools</groupId>
+    <artifactId>munit-maven-plugin</artifactId>
+    <version>${munit.version}</version>
+    <executions>
+        <execution>
+            <id>test</id>
+            <phase>test</phase>
+            <goals>
+                <goal>test</goal>
+            </goals>
+        </execution>
+    </executions>
+    <configuration>
+        <runtimeVersion>4.3.0-PATCH1</runtimeVersion>
+    </configuration>
+</plugin>
 
 </project>
