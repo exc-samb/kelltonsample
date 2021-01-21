@@ -1,21 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
-	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-	xsi:schemaLocation="
-		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
-		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
-	<munit:config name="kelltonflow-test-suite.xml" />
-	<munit:test name="kelltonflow-test-suite-kelltonflowFlowTest" doc:id="46ec163c-b1ef-4227-904a-fbcba6e331dd" description="Test">
-		<munit:execution >
-			<flow-ref doc:name="Flow-ref to kelltonflowFlow" doc:id="dff21d80-005a-47ff-973b-c1be4139e399" name="kelltonflowFlow"/>
-		</munit:execution>
-		<munit:validation>
-			<munit-tools:assert-that doc:name="Assert that" doc:id="e8fa9229-ec9b-4816-8a86-8168d260172e" expression="#[payload]" is="#[MunitTools::notNullValue()]"/>
-		</munit:validation>
-	</munit:test>
-
-
-</mule>
