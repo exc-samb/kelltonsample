@@ -15,11 +15,9 @@ pipeline {
         label '' //set agent
     }
     stages {
-        stage('Install postman'){
-          npm install -g newman
+        stage('Install newman-postman'){
+        npm install -g newman
         }
-        
-        
         stage('Build & Unit Test'){
             steps {  
                 
@@ -44,11 +42,12 @@ pipeline {
             steps {
                 
         }
-    }
+		}	
     post {
         always {
             echo 'Finalizado. Limpiando workspace'
             deleteDir()
         }
     }
-
+	}
+}
