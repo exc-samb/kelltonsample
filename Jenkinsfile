@@ -1,15 +1,15 @@
 pipeline {
     environment {
     //DatosProyecto
-        projectName = 
-        buildCommand = 
-        compile = 
-        publishToTEST = 
-        publishToPRO = 
+        projectName = "test"
+        buildCommand = ""
+        compile = ""
+        publishToTEST = ""
+        publishToPRO = ""
     //SonarQube
-        sources = 
-        projectKey =
-        scannerHome = 
+        sources = ""
+        projectKey = ""
+        scannerHome = ""
     }
     agent any
     stages {
