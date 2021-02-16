@@ -16,6 +16,7 @@ pipeline {
 	stage('Newman run'){
 		newman run 'Mule API Manager instance creation.postman_collection.json'
 	}
+	    /*
         stage('Build & Unit Test'){
             steps {  
                 ""
@@ -42,6 +43,7 @@ pipeline {
                 ""
         }
 		}	
+		*/
     post {
         always {
             echo 'Finalizado. Limpiando workspace'
