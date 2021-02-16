@@ -18,27 +18,28 @@ pipeline {
 	}
         stage('Build & Unit Test'){
             steps {  
-                
+                ""
             }
         }
         stage('SonarQube analysis') {
             steps {
-                
+                ""
             }
         }
         stage('Connect Azure') {
             steps {
-                
+                ""
             }
         }
         stage('Deploy') {
             parallel {
                 //stages to deploy to azure
+		    ""
             }
         }
         stage('Disconnect Azure') {
             steps {
-                
+                ""
         }
 		}	
     post {
