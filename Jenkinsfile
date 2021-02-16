@@ -14,7 +14,7 @@ pipeline {
     agent any
     stages {
         stage('Install newman-postman'){
-        	npm install -g newman
+        	npm install "-g newman"
         }
         stage('Build & Unit Test'){
             steps {  
