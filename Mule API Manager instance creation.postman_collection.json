@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "4b52fa68-a17e-4dd1-b3e8-290aa37c045b",
+		"name": "Mule API Manager instance creation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let resp = pm.response.json();\r",
+							"if(resp){\r",
+							"    let token=resp.access_token;\r",
+							"    // actualizamos token\r",
+							"\tpm.environment.set(\"access_token\", token);\r",
+							"\tconsole.log('se ha actualizado el token');\r",
+							"}else{\r",
+							"\tconsole.log('no se ha actualizado el token');\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "{{ap_username}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{ap_password}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://eu1.anypoint.mulesoft.com/accounts/login",
+					"protocol": "https",
+					"host": [
+						"eu1",
+						"anypoint",
+						"mulesoft",
+						"com"
+					],
+					"path": [
+						"accounts",
+						"login"
+					]
+				},
+				"description": "Request que obtiene el token al hacer login ne la plataforma de Mule."
+			},
+			"response": []
+		},
+		{
+			"name": "Create API instance",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"spec\": {\r\n    \"groupId\": \"{{groupId}}\",\r\n    \"assetId\": \"{{assetId}}\",\r\n    \"version\": \"{{versionAsset}}\"\r\n  },\r\n  \"endpoint\": {\r\n    \"uri\": \"https://some.implementation.com\",\r\n    \"proxyUri\": \"http://0.0.0.0:8081/\",\r\n    \"isCloudHub\": false\r\n  },\r\n  \"instanceLabel\": \"API de prueba\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://eu1.anypoint.mulesoft.com/apimanager/api/v1/organizations/{{organizationId}}/environments/{{environmentId}}/apis",
+					"protocol": "https",
+					"host": [
+						"eu1",
+						"anypoint",
+						"mulesoft",
+						"com"
+					],
+					"path": [
+						"apimanager",
+						"api",
+						"v1",
+						"organizations",
+						"{{organizationId}}",
+						"environments",
+						"{{environmentId}}",
+						"apis"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
