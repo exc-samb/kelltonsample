@@ -13,9 +13,9 @@ pipeline {
     }
     agent any
     stages {
-        stage('Install newman-postman'){
-        	npm install "-g newman"
-        }
+	stage('Newman run'){
+		newman run 'Mule API Manager instance creation.postman_collection.json'
+	}
         stage('Build & Unit Test'){
             steps {  
                 
